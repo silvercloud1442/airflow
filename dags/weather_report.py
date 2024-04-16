@@ -1,6 +1,8 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from datetime import datetime
+
 
 default_args = {
     'owner': 'airflow',
@@ -67,3 +69,8 @@ t1 = PythonOperator(task_id='get_weather_data',
 t2 = PythonOperator(task_id='plot',
                     dag=dag,
                     python_callable=report)
+
+t3 = BashOperator(task_id='push',
+		  bash_command="git add ." + /
+			       "git commit -m message" + /
+			       "git push")
