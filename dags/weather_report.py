@@ -42,10 +42,10 @@ def write_weather_2_pickle():
     try:
         df = pd.read_pickle("/mnt/c/Users/train/airflow/my_data.pkl")
         df = df._append(temp)
-        df.to_pickle("/mnt/c/Users/train/airflow/my_data.pkl")
+        df.to_pickle("/mnt/c/Users/train/airflow/my_data.pkl", protocol=4)
         print('success import')
     except:
-        temp.to_pickle("/mnt/c/Users/train/airflow/my_data.pkl")
+        temp.to_pickle("/mnt/c/Users/train/airflow/my_data.pkl", protocol=4)
         print('failed import')
 
 def report():
