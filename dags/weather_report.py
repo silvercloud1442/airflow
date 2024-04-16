@@ -72,5 +72,5 @@ t2 = PythonOperator(task_id='plot',
 
 t3 = BashOperator(task_id='push',
 		  bash_command="git add ." + /
-			       "git commit -m message" + /
-			       "git push")
+			       "git commit -m message &&" + /
+			       "git push git@github.com:silvercloud1442/airflow.git")
